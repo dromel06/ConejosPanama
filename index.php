@@ -101,8 +101,13 @@
 								
 							print("</div>");
 							print("<div class='card-action center'>");
-							    
-								print("<a href='reserva.php?id=".$res['id']."' class='red btn waves-effect waves-light'>Reservar</a>");
+							    ?>
+							    <form action="reserva.php" method="post">
+							    	<input type="hidden" name="id" value="<?php print($res['id']) ?>">
+							    	<input type="hidden" name="codigo" value="<?php print($res['codigo']) ?>">
+									<button class='red btn waves-effect waves-light' >Reservar</button>
+								</form>
+								<?php 
 							print("</div>");
 						print("</div>");
 					print("</div>");

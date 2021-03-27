@@ -64,12 +64,13 @@
 				<?php
 				$to = "conejospanama@gmail.com";
 				$subject = "Conejo Reservado";
-				$mensaje = $_POST['nombre']. " ha reservado un conejo.";
+				$mensaje = "Se ha hecho una nueva reserva \r\n Nombre: ".$_POST['nombre']."\r\n Celular: ".$_POST['celular']."\r\n Conejo: ".$_POST['codigo'];
 				$header = "From: reservas@conejospanama.com" . "\r\n";
 				mail($to, $subject, $mensaje, $header);
 			}
 			else{
-				$id = $_GET['id'];
+				$id = $_POST['id'];
+				$cod = $_POST['codigo']
 		?>
 			<br><br>
 
@@ -80,7 +81,9 @@
 						<form action="reserva.php" method="post" class="" enctype="multipart/form-data" id="usrform">
 							
 							<div class="row ">
-								<input style="visibility: hidden" type="text" name="id" value=<?php print($id) ?> required>
+								<input type="hidden" name="id" value="<?php $id?>">
+							    <input type="hidden" name="codigo" value="<?php $cod ?>">
+								
 								<div class="input-field col s12">
 
 									<label class="black-text" for="nombre">Nombre</label>
